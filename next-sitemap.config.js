@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://adol.tech",
+  siteUrl: process.env.SITE_URL || "https://adol.tech",
   generateRobotsTxt: true,
-  exclude: ["/dashboard"],
+  outDir: "out",
 };

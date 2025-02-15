@@ -1,10 +1,10 @@
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Adol Tech",
+  "@type": "Person",
+  name: "Adol",
   url: "https://adol.tech",
-  logo: "https://adol.tech/logo.png",
+  image: "https://adol.tech/profile.jpg", // Replace with your profile image
   description:
-    "Adol Tech is a technology company that builds hard tech solutions for the future.",
+    "I'm Adol—a tech enthusiast who builds hard tech projects just for fun. Join me as I explore artificial intelligence, quantum experiments, and creative hardware innovations.",
   sameAs: ["https://x.com/AdolTechX"],
 };

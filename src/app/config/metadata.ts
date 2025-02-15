@@ -1,11 +1,11 @@
 export const metadata = {
-  title: "Adol Tech | Building hard tech",
+  title: "Adol Tech | Building Hard Tech for Fun",
   description:
-    "Adol Tech is a technology company that builds hard tech solutions for the future.",
+    "Hey there! I'm Adol—a tinkerer, builder, and tech enthusiast who loves experimenting with hard tech. From artificial intelligence to quantum curiosities, welcome to my personal playground of wild projects!",
   openGraph: {
-    title: "Adol Tech | Building hard tech",
+    title: "Adol Tech | Building Hard Tech for Fun",
     description:
-      "Adol Tech is a technology company that builds hard tech solutions for the future.",
+      "I'm Adol, a tech explorer diving into artificial intelligence, quantum experiments, and quirky hardware projects. Check out my personal playground of fun tech adventures!",
     url: "https://adol.tech",
     siteName: "Adol Tech",
     images: [
@@ -21,7 +21,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Adol Tech",
     description:
-      "Adol Tech is a technology company that builds hard tech solutions for the future.",
+      "I'm Adol—a tech tinkerer and experimenter building hard tech for the sheer fun of it. Join me on my adventures in artificial intelligence, quantum magic, and offbeat hardware projects!",
     images: ["https://adol.tech/og-image.jpg"],
   },
 };
