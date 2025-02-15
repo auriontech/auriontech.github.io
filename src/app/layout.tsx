@@ -5,6 +5,21 @@ import Providers from "./components/Providers";
 import Script from "next/script";
 import { metadata } from "./config/metadata";
 import { organizationSchema } from "./config/schema";
+import { Inter, Montserrat } from "next/font/google";
+import { ThemeProvider } from "./components/ThemeProvider";
+
+// Initialize fonts
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
 
 export { metadata };
 
@@ -14,7 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${inter.variable} ${montserrat.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="canonical" href="https://adol.tech" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -27,14 +46,21 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="flex flex-col min-h-screen bg-gray-50 text-gray-900">
-        <Providers>
-          <Navbar />
-          <main role="main" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </Providers>
+      <body className="flex flex-col min-h-screen bg-background text-foreground antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Providers>
+            <Navbar />
+            <main role="main" className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );

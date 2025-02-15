@@ -1,3 +1,4 @@
+"use client";
 import { organizationSchema } from "../config/schema";
 import {
   FaXTwitter,
@@ -8,6 +9,8 @@ import {
 } from "react-icons/fa6";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   const getIconForPlatform = (url: string) => {
     if (url.includes("x.com") || url.includes("twitter.com"))
       return <FaXTwitter size={20} />;
@@ -19,36 +22,40 @@ export default function Footer() {
   };
 
   return (
-    <footer className="p-3 sm:p-4 bg-gray-900 text-white text-center text-sm sm:text-base">
-      <div className="flex flex-col gap-2">
-        <div className="flex justify-center gap-4">
-          {organizationSchema.sameAs.map((url) => {
-            const icon = getIconForPlatform(url);
-            if (!icon) return null;
+    <footer className="p-3 sm:p-4 bg-background text-foreground shadow-md">
+      <div className="container-custom">
+        <div className="flex flex-col gap-2">
+          <div className="flex justify-center gap-4">
+            {organizationSchema.sameAs.map((url) => {
+              const icon = getIconForPlatform(url);
+              if (!icon) return null;
 
-            return (
-              <a
-                key={url}
-                title={url}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gray-300 transition-colors"
-              >
-                {icon}
-              </a>
-            );
-          })}
-        </div>
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
-          <p>© {new Date().getFullYear()} Adol Tech. All rights reserved.</p>
-          <a
-            title="Privacy Policy"
-            href="/privacy"
-            className="hover:text-gray-300 transition-colors"
-          >
-            Privacy Policy
-          </a>
+              return (
+                <a
+                  key={url}
+                  title={url}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-secondary-600 hover:text-secondary-800 dark:text-secondary-300 dark:hover:text-secondary-100 transition-colors"
+                >
+                  {icon}
+                </a>
+              );
+            })}
+          </div>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
+            <p className="text-center text-secondary-600 dark:text-secondary-300">
+              © {year} Adol Tech. All rights reserved.
+            </p>
+            <a
+              title="Privacy Policy"
+              href="/privacy"
+              className="text-secondary-600 hover:text-secondary-800 dark:text-secondary-300 dark:hover:text-secondary-100 transition-colors"
+            >
+              Privacy Policy
+            </a>
+          </div>
         </div>
       </div>
     </footer>
