@@ -8,7 +8,7 @@ describe("Home", () => {
 
   it("renders welcome message and introduction", () => {
     // Check main heading
-    const heading = screen.getByText("🚀 Welcome to My Playground!");
+    const heading = screen.getByText("🚀 Building Hard Tech for Fun!");
     expect(heading).toBeInTheDocument();
 
     // Check introduction text
@@ -31,6 +31,6 @@ describe("Home", () => {
   it("has proper heading hierarchy", () => {
     const mainHeading = screen.getByRole("heading", { level: 1 });
     expect(mainHeading).toBeInTheDocument();
-    expect(mainHeading).toHaveTextContent("🚀 Welcome to My Playground!");
+    expect(mainHeading).toHaveTextContent("🚀 Building Hard Tech for Fun!");
   });
 });

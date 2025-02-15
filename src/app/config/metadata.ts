@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Adol Tech | Building Hard Tech for Fun",
   description:
-    "Hey there! I'm Adol—a tinkerer, builder, and tech enthusiast who loves experimenting with hard tech. From artificial intelligence to quantum curiosities, welcome to my personal playground of wild projects!",
+    "Hey! I'm Adol—a builder and tech enthusiast exploring AI, quantum experiments, and quirky hardware projects. Welcome to my playground of experimental tech adventures!",
   openGraph: {
     title: "Adol Tech | Building Hard Tech for Fun",
     description:

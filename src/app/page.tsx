@@ -3,7 +3,7 @@ export default function Home() {
     <div className="text-center py-12 sm:py-20 bg-gray-100 min-h-[60vh] flex flex-col items-center justify-center px-4">
       <div className="space-y-4 sm:space-y-6 max-w-xl">
         <h1 className="text-3xl sm:text-4xl font-bold">
-          🚀 Welcome to My Playground!
+          🚀 Building Hard Tech for Fun!
         </h1>
         <p className="text-base sm:text-lg text-gray-600">
           Hey, I&apos;m Adol. I tinker, build, and experiment with hard tech
