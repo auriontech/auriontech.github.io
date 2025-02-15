@@ -5,17 +5,32 @@ import CookieBanner from "./CookieBanner";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [isConsentGiven, setIsConsentGiven] = useState(false);
+  const [isConsent, setIsConsent] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
-    if (consent === "true") setIsConsentGiven(true);
+    if (consent === "true" || consent === "false") setIsConsentGiven(true);
+    setIsConsent(consent === "true");
     setIsLoading(false);
   }, []);
 
+  const acceptCookies = () => {
+    localStorage.setItem("cookie_consent", "true");
+    setIsConsentGiven(true);
+    setIsConsent(true);
+    window.location.reload(); // Reload to apply tracking scripts
+  };
+
+  const rejectCookies = () => {
+    localStorage.setItem("cookie_consent", "false");
+    setIsConsentGiven(true);
+    setIsConsent(false);
+  };
+
   return (
     <>
-      {!isLoading && isConsentGiven && (
+      {!isLoading && isConsentGiven && isConsent && (
         <>
           <Script
             strategy="afterInteractive"
@@ -38,7 +53,12 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         </>
       )}
       {children}
-      <CookieBanner />
+      <CookieBanner
+        isConsentGiven={isConsentGiven}
+        isLoading={isLoading}
+        onAccept={acceptCookies}
+        onReject={rejectCookies}
+      />
     </>
   );
 }

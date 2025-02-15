@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Providers from "./components/Providers";
 import Script from "next/script";
-import CookieBanner from "./components/CookieBanner";
 import { metadata } from "./config/metadata";
 import { organizationSchema } from "./config/schema";
 
@@ -17,6 +16,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <Script
           id="schema-org"
           type="application/ld+json"
@@ -31,7 +32,6 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </Providers>
-        <CookieBanner />
       </body>
     </html>
   );
