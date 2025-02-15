@@ -4,10 +4,15 @@ export default function Navbar() {
   return (
     <nav className="p-4 bg-white shadow-md">
       <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0 px-4">
-        <Link href="/" className="text-xl sm:text-2xl font-bold">
+        <Link
+          href="/"
+          className="text-xl sm:text-2xl font-bold"
+          title="Adol Tech"
+        >
           Adol Tech
         </Link>
         <a
+          title="Buy me a coffee"
           href="https://www.buymeacoffee.com/adol"
           target="_blank"
           rel="noopener noreferrer"

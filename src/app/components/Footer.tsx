@@ -29,6 +29,7 @@ export default function Footer() {
             return (
               <a
                 key={url}
+                title={url}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -41,7 +42,11 @@ export default function Footer() {
         </div>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
           <p>© {new Date().getFullYear()} Adol Tech. All rights reserved.</p>
-          <a href="/privacy" className="hover:text-gray-300 transition-colors">
+          <a
+            title="Privacy Policy"
+            href="/privacy"
+            className="hover:text-gray-300 transition-colors"
+          >
             Privacy Policy
           </a>
         </div>

@@ -5,12 +5,18 @@ export default function Home() {
         <h1 className="text-3xl sm:text-4xl font-bold">
           🚀 Building Hard Tech for Fun!
         </h1>
+        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800">
+          Who Am I?
+        </h2>
         <p className="text-base sm:text-lg text-gray-600">
           Hey, I&apos;m Adol. I tinker, build, and experiment with hard tech
           projects purely for fun. Whether I&apos;m dabbling in artificial
           intelligence, exploring quantum quirks, or crafting offbeat hardware,
           I&apos;m always up to something exciting!
         </p>
+        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800">
+          What&apos;s Next?
+        </h2>
         <p className="text-base sm:text-lg text-gray-600">
           This page is a work in progress—just like my projects. Stick around
           and join me for a wild ride through the world of creative tech!
