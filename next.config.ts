@@ -5,7 +5,8 @@ const nextConfig = {
     unoptimized: true, // GitHub Pages does not support Next.js optimized images
   },
   distDir: "out",
-  assetPrefix: "./",
+  basePath: "",
+  assetPrefix: "/",
 };
 
 module.exports = nextConfig;
