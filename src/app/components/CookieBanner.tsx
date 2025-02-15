@@ -14,16 +14,16 @@ export default function CookieBanner({
   if (isConsentGiven) return null;
 
   return (
-    <div className="fixed bottom-0 w-full bg-secondary-800 text-white p-4 text-center">
-      <p className="body-text text-white">
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 max-w-md w-[95%] bg-background/95 text-foreground p-3 text-center rounded-lg shadow-md border border-border/10">
+      <p className="text-sm text-muted-foreground">
         We use cookies for analytics. You can choose to accept them to help us
         improve your experience, or reject them.
       </p>
-      <div className="mt-4 space-x-4">
-        <button onClick={onAccept} className="btn-primary">
+      <div className="mt-3 space-x-3">
+        <button onClick={onAccept} className="btn-primary btn-sm">
           Accept
         </button>
-        <button onClick={onReject} className="btn-secondary">
+        <button onClick={onReject} className="btn-secondary btn-sm">
           Reject
         </button>
       </div>
