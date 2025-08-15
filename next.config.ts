@@ -1,12 +1,18 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export",
-  images: {
-    unoptimized: true, // GitHub Pages does not support Next.js optimized images
-  },
-  distDir: "out",
-  basePath: "",
-  assetPrefix: "/",
+import type { NextConfig } from 'next';
+import createMDX from '@next/mdx';
+import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+
+const nextConfig: NextConfig = {
+  pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
 };
 
-module.exports = nextConfig;
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+  },
+});
+
+export default withMDX(nextConfig);
