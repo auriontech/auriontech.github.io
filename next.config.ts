@@ -8,7 +8,8 @@ const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   output: 'export',
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/auriontech.github.io' : '',
+  basePath:
+    process.env.NODE_ENV === 'production' ? '/auriontech.github.io' : '',
   images: {
     unoptimized: true,
   },
