@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
+import { getBaseUrl } from '@/lib/url';
 
 export const metadata: Metadata = {
   title: "Adol's Blog",
   description: "Adol's Blog is a personal blog about technology and science",
-  metadataBase: new URL('https://adol.tech'),
+  metadataBase: new URL(getBaseUrl()),
   openGraph: {
     title: "Adol's Blog",
     description: 'Personal blog about technology and science',
-    url: 'https://adol.tech',
+    url: getBaseUrl(),
     siteName: "Adol's Blog",
     images: [
       {

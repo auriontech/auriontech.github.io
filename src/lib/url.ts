@@ -1,12 +1,26 @@
-export const getBaseUrl = () => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
-  if (baseUrl) {
-    return baseUrl;
-  }
-
+/**
+ * Utility function to generate consistent URLs across the application
+ */
+export function getBaseUrl(): string {
   return 'https://adol.tech';
-};
+}
+
+/**
+ * Generate absolute URLs for assets and pages
+ */
+export function getAbsoluteUrl(path: string): string {
+  const baseUrl = getBaseUrl();
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${baseUrl}${cleanPath}`;
+}
+
+/**
+ * Generate relative URLs
+ */
+export function getRelativeUrl(path: string): string {
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return cleanPath;
+}
 
 /**
  * Creates a path generator function for a given locale
