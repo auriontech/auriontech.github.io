@@ -52,44 +52,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Topics Section */}
-      <section className="container mx-auto px-4 py-16 bg-muted/50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Topics I Love
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card>
-              <CardHeader>
-                <CodeIcon className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Artificial Intelligence</CardTitle>
-                <CardDescription>
-                  Specially LLMs, deep learning and algorithms.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            <Card>
-              <CardHeader>
-                <BookOpenIcon className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Quantum Computing</CardTitle>
-                <CardDescription>
-                  Finding new applications to quantum computing.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CoffeeIcon className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Nuclear Fusion</CardTitle>
-                <CardDescription>
-                  Looking for a future energy source.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Recent Posts Section */}
       {recentPosts.length > 0 && (
         <section className="container mx-auto px-4 py-16">

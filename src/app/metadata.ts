@@ -5,6 +5,15 @@ export const metadata: Metadata = {
   title: "Adol's Blog",
   description: "Adol's Blog is a personal blog about technology and science",
   metadataBase: new URL(getBaseUrl()),
+  alternates: {
+    types: {
+      'application/rss+xml': [
+        { title: 'RSS Feed', url: '/rss.xml' },
+        { title: 'Atom Feed', url: '/atom.xml' },
+        { title: 'JSON Feed', url: '/feed.json' },
+      ],
+    },
+  },
   openGraph: {
     title: "Adol's Blog",
     description: 'Personal blog about technology and science',

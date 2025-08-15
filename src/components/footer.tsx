@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { RssIcon } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -25,6 +26,24 @@ export default function Footer() {
             >
               Cookies
             </Link>
+            <div className="flex items-center gap-2">
+              <Link
+                href="/rss.xml"
+                className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                title="RSS Feed"
+              >
+                <RssIcon className="h-3 w-3" />
+                RSS
+              </Link>
+              <Link
+                href="/atom.xml"
+                className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                title="Atom Feed"
+              >
+                <RssIcon className="h-3 w-3" />
+                Atom
+              </Link>
+            </div>
           </nav>
         </div>
       </div>

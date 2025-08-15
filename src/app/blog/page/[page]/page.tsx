@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
-import { ClockIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+import {
+  ClockIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  RssIcon,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -46,10 +51,30 @@ export default async function BlogPage({ params }: BlogPageProps) {
   return (
     <section className="container px-4 py-6 mx-auto max-w-4xl">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold">Blog</h1>
-        <p className="text-sm text-muted-foreground">
-          {totalPosts} post{totalPosts !== 1 ? 's' : ''}
-        </p>
+        <div>
+          <h1 className="text-3xl font-bold">Blog</h1>
+          <p className="text-sm text-muted-foreground">
+            {totalPosts} post{totalPosts !== 1 ? 's' : ''}
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/rss.xml"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            title="RSS Feed"
+          >
+            <RssIcon className="h-4 w-4" />
+            RSS
+          </Link>
+          <Link
+            href="/atom.xml"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            title="Atom Feed"
+          >
+            <RssIcon className="h-4 w-4" />
+            Atom
+          </Link>
+        </div>
       </div>
 
       <div className="space-y-6">
