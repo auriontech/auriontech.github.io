@@ -44,28 +44,48 @@ export type PostMeta = {
 };
 
 export async function getAllPosts(): Promise<PostMeta[]> {
-  const dir = path.join(BLOG_DIR);
-  const files = await fs.readdir(dir);
+  try {
+    const dir = path.join(BLOG_DIR);
 
-  const posts = await Promise.all(
-    files
-      .filter(f => f.endsWith('.md') || f.endsWith('.mdx'))
-      .map(async file => {
-        const raw = await fs.readFile(path.join(dir, file), 'utf8');
-        const { data, content } = matter(raw);
-        const slug = file.replace(/\.mdx?$/, '');
-        const readingTime = calculateReadingTime(content);
-        return { ...data, slug, readingTime } as PostMeta;
-      })
-  );
+    // Check if directory exists
+    try {
+      await fs.access(dir);
+    } catch {
+      console.warn(`Blog directory does not exist: ${dir}`);
+      return [];
+    }
 
-  // Filter out drafts in production
-  const isProduction = process.env.NODE_ENV === 'production';
-  const filteredPosts = isProduction
-    ? posts.filter(post => !post.draft)
-    : posts;
+    const files = await fs.readdir(dir);
 
-  return filteredPosts.sort((a, b) => +new Date(b.date) - +new Date(a.date));
+    const posts = await Promise.all(
+      files
+        .filter(f => f.endsWith('.md') || f.endsWith('.mdx'))
+        .map(async file => {
+          try {
+            const raw = await fs.readFile(path.join(dir, file), 'utf8');
+            const { data, content } = matter(raw);
+            const slug = file.replace(/\.mdx?$/, '');
+            const readingTime = calculateReadingTime(content);
+            return { ...data, slug, readingTime } as PostMeta;
+          } catch (fileError) {
+            console.warn(`Failed to read blog post ${file}:`, fileError);
+            return null;
+          }
+        })
+    );
+
+    // Filter out null entries and drafts in production
+    const validPosts = posts.filter(post => post !== null) as PostMeta[];
+    const isProduction = process.env.NODE_ENV === 'production';
+    const filteredPosts = isProduction
+      ? validPosts.filter(post => !post.draft)
+      : validPosts;
+
+    return filteredPosts.sort((a, b) => +new Date(b.date) - +new Date(a.date));
+  } catch (error) {
+    console.warn('Failed to read blog posts:', error);
+    return [];
+  }
 }
 
 export type PaginatedPosts = {

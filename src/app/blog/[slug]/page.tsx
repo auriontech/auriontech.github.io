@@ -11,8 +11,13 @@ import { Badge } from '@/components/ui/badge';
 import { ClockIcon } from 'lucide-react';
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map(post => ({ slug: post.slug }));
+  try {
+    const posts = await getAllPosts();
+    return posts.map(post => ({ slug: post.slug }));
+  } catch (error) {
+    console.warn('Failed to generate static params for blog posts:', error);
+    return [];
+  }
 }
 
 export default async function Page({

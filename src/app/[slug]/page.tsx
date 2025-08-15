@@ -8,8 +8,13 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
 
 export async function generateStaticParams() {
-  const pages = await getAllPages();
-  return pages.map(page => ({ slug: page.slug }));
+  try {
+    const pages = await getAllPages();
+    return pages.map(page => ({ slug: page.slug }));
+  } catch (error) {
+    console.warn('Failed to generate static params for pages:', error);
+    return [];
+  }
 }
 
 export default async function Page({
