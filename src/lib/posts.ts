@@ -61,7 +61,7 @@ export async function getAllPosts(): Promise<PostMeta[]> {
 
   // Filter out drafts in production
   const isProduction = process.env.NODE_ENV === 'production';
-  const filteredPosts = isProduction 
+  const filteredPosts = isProduction
     ? posts.filter(post => !post.draft)
     : posts;
 

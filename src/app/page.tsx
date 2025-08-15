@@ -132,11 +132,12 @@ export default async function Home() {
                       </div>
                       <div className="flex flex-col gap-2">
                         <Badge variant="secondary">{post.locale}</Badge>
-                        {post.draft && process.env.NODE_ENV === 'development' && (
-                          <Badge variant="outline" className="text-xs">
-                            DRAFT
-                          </Badge>
-                        )}
+                        {post.draft &&
+                          process.env.NODE_ENV === 'development' && (
+                            <Badge variant="outline" className="text-xs">
+                              DRAFT
+                            </Badge>
+                          )}
                       </div>
                     </div>
                     {post.description && (
