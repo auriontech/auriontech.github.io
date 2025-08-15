@@ -5,11 +5,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "export": "next export",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "deploy": "pnpm run build && pnpm run export && gh-pages -d out",
+    "deploy": "pnpm run build && gh-pages -d out",
     "postbuild": "next-sitemap"
   },
   "dependencies": {
