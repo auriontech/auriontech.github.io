@@ -36,7 +36,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --no-workspace
+        run: pnpm install --frozen-lockfile --ignore-workspace
 
       - name: Build Next.js site
         run: pnpm run build
